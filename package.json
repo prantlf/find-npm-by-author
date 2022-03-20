@@ -1,6 +1,6 @@
 {
   "name": "find-npm-by-author",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Looks for local NPM packages by their author or URL",
   "author": {
     "name": "Ferdinand Prantl",
