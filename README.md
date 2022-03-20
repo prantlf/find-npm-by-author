@@ -10,7 +10,7 @@ Looks for local NPM packages by their author or URL. Can be used to detect packa
 
 Find all packages installed in the local `node_modules` authored by me, or with `prantlf` in the repository URL:
 
-    npx find-npm-by-author -N prantl -R prantlf
+    npx find-npm-by-author -A prantl -R prantlf
 
 And the same programmatically:
 
