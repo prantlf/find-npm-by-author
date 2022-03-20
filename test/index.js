@@ -1,5 +1,5 @@
 const { ok, strictEqual } = require('assert')
-const exported = require('.')
+const exported = require('..')
 
 ok(exported)
 strictEqual(typeof exported, 'object')

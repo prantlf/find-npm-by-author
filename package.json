@@ -26,22 +26,21 @@
     "node": ">=10"
   },
   "files": [
-    "bin",
-    "index.js"
+    "lib"
   ],
+  "main": "lib/index.js",
   "bin": {
-    "find-npm-by-author": "bin/find-npm-by-author.js"
+    "find-npm-by-author": "lib/bin.js"
   },
   "scripts": {
-    "lint": "eslint bin index.js test.js",
-    "fix": "eslint --fix bin index.js test.js",
-    "check": "c8 node test && c8 --no-clean node bin/find-npm-by-author.js && c8 --no-clean node bin/find-npm-by-author.js -h && c8 --no-clean node bin/find-npm-by-author.js -V && c8 --no-clean node bin/find-npm-by-author.js --dummy || c8 --no-clean node bin/find-npm-by-author.js -p dummy -A test || c8 --no-clean node bin/find-npm-by-author.js -p node_modules || c8 --no-clean node bin/find-npm-by-author.js -A \\\\bterkel\\\\b -H \\\\bterkelg\\\\b -R \\\\bterkelg\\\\b && c8 report -r lcov -r text && c8 check-coverage",
+    "lint": "eslint lib test",
+    "fix": "eslint --fix lib test",
+    "check": "c8 node test && c8 --no-clean node lib/bin.js && c8 --no-clean node lib/bin.js -h && c8 --no-clean node lib/bin.js -V && c8 --no-clean node lib/bin.js --dummy || c8 --no-clean node lib/bin.js -p dummy -A test || c8 --no-clean node lib/bin.js -p node_modules || c8 --no-clean node lib/bin.js -A \\\\bterkel\\\\b -H \\\\bterkelg\\\\b -R \\\\bterkelg\\\\b && c8 report -r lcov -r text && c8 check-coverage",
     "test": "npm run lint && npm run check"
   },
   "c8": {
     "include": [
-      "bin/find-npm-by-author.js",
-      "index.js"
+      "lib"
     ],
     "reporter": [],
     "branches": 100,
