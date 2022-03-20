@@ -1,3 +1,11 @@
+## [0.0.3](https://github.com/prantlf/find-npm-by-author/compare/v0.0.2...v0.0.3) (2022-03-20)
+
+
+### Bug Fixes
+
+* Catch any error in string matching and report the file ([ca9d0e4](https://github.com/prantlf/find-npm-by-author/commit/ca9d0e458d5a296e479fccfcfcfcf99c96419867))
+* Support package properties with array of strings ([41a3779](https://github.com/prantlf/find-npm-by-author/commit/41a3779bf1b517f30e02472bb43c078ec52ddd1c))
+
 ## [0.0.2](https://github.com/prantlf/find-npm-by-author/compare/v0.0.1...v0.0.2) (2022-03-20)
 
 
