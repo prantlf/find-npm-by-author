@@ -4,7 +4,7 @@
  ![Dependency status](https://img.shields.io/librariesio/release/npm/find-npm-by-author)
 ](https://www.npmjs.com/package/find-npm-by-author)
 
-Looks for local NPM packages by their author or URL. Can be used to detect packages of authors, whose work you want to fund, or who you want to avoid, because they are not reliable.
+Looks for local NPM packages by their author or URL. Can be used to detect packages of authors, whose work you want to fund, or who you want to avoid.
 
 ## Synopsis
 
@@ -30,7 +30,9 @@ pnpm i find-npm-by-author
 yarn add find-npm-by-author
 ```
 
-## Usage
+## Command Line
+
+Paths to directories paths with matching packages will be printed on the console.
 
     find-npm-by-author [option...]
 
@@ -47,52 +49,33 @@ yarn add find-npm-by-author
 
 ## API
 
-Prevent the transpiler to wrap source files that are already wrapped by `define` or `require` as AMD modules:
+This package exposes the following names exports.
 
-```js
-{
-  plugins: ['amd-checker']
-}
-```
+### findByAuthor({ path, authors, homepages, repositories }): result[]
 
-A typical configuration combined with [babel-plugin-module-resolver-standalone] and set within [requirejs-babel7] by default:
+Input parameters are expected as an object with the following properties. At least one of the arrays `authors`, `homepages` or `repositories` must not be empty.
 
-```js
-{
-  plugins: [
-    'amd-checker',
-    'transform-modules-amd',
-    [
-      'module-resolver',
-      {
-        resolvePath: function (sourcePath, currentFile, opts) {
-          // Avoid prefixing modules handled by other plugins.
-          if (sourcePath.indexOf('!') < 0) {
-            return 'es6!' + sourcePath;
-          }
-        }
-      }
-    ]
-  ]
-}
-```
+| property       | type       | default          | description                                                 |
+|:---------------|:-----------|:-----------------|:------------------------------------------------------------|
+| `path`         | `string`   | `'node_modules'` | path to the directory with NPM modules to search            |
+| `authors`      | `string[]` | `[]`             | word expressions to match in names of package authors       |
+| `homepages`    | `string[]` | `[]`             | word expressions to match in the package home page URL      |
+| `repositories` | `string[]` | `[]`             | word expressions to match in package repository or bug URLs |
 
-Error handling during the transpilation in a RequireJS plugin:
+Output is an object with the following properties:
 
-```js
-var amdChecker = require('find-npm-by-author')
-babel.registerPlugin('amd-checker', amdChecker);
+| property       | type       | description                             |
+|:---------------|:-----------|:----------------------------------------|
+| `directories`  | `string[]` | directory paths with matching packages  |
+| `errors`       | `object[]` | errors from reading or parsing packages |
 
-var code;
-try {
-  code = babel.transform(text, options).code;
-} catch (error) {
-  if (!(error instanceof amdChecker.AmdDetected)) {
-    return onload.error(error);
-  }
-  code = text;
-}
-```
+An error is described by an object with the following properties:
+
+| property  | type     | description                                                               |
+|:----------|:---------|:--------------------------------------------------------------------------|
+| `error`   | `Error`  | the original error thrown when reading or parsing a package               |
+| `file`    | `string` | the path to the file which was processed when the error was thrown        |
+| `content` | `string` | the content of the processed file if reading succeeded and parsing failed |
 
 ## Contributing
 
