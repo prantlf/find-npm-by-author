@@ -1,0 +1,83 @@
+{
+  "name": "find-npm-by-author",
+  "version": "0.0.1",
+  "description": "Looks for local NPM packages by their author or URL",
+  "author": {
+    "name": "Ferdinand Prantl",
+    "email": "prantlf@gmail.com",
+    "url": "http://prantl.tk"
+  },
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/prantlf/find-npm-by-author/blob/master/LICENSE"
+    }
+  ],
+  "homepage": "https://github.com/prantlf/find-npm-by-author#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prantlf/find-npm-by-author.git"
+  },
+  "bugs": {
+    "url": "https://github.com/prantlf/find-npm-by-author/issues"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "files": [
+    "bin",
+    "index.js"
+  ],
+  "bin": {
+    "find-npm-by-author": "bin/find-npm-by-author.js"
+  },
+  "scripts": {
+    "lint": "eslint bin index.js test.js",
+    "fix": "eslint --fix bin index.js test.js",
+    "check": "c8 node test && c8 --no-clean node bin/find-npm-by-author.js && c8 --no-clean node bin/find-npm-by-author.js -h && c8 --no-clean node bin/find-npm-by-author.js -V && c8 --no-clean node bin/find-npm-by-author.js --dummy || c8 --no-clean node bin/find-npm-by-author.js -p dummy -A test || c8 --no-clean node bin/find-npm-by-author.js -p node_modules || c8 --no-clean node bin/find-npm-by-author.js -A \\\\bterkel\\\\b -H \\\\bterkelg\\\\b -R \\\\bterkelg\\\\b && c8 report -r lcov -r text && c8 check-coverage",
+    "test": "npm run lint && npm run check"
+  },
+  "c8": {
+    "include": [
+      "bin/find-npm-by-author.js",
+      "index.js"
+    ],
+    "reporter": [],
+    "branches": 100,
+    "lines": 100,
+    "functions": 100,
+    "statements": 100
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      [
+        "@semantic-release/github",
+        {
+          "failComment": false
+        }
+      ],
+      "@semantic-release/git"
+    ]
+  },
+  "dependencies": {
+    "tiny-glob": "^0.2.9"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "c8": "^7.11.0",
+    "eslint": "^8.11.0"
+  },
+  "keywords": [
+    "find",
+    "author",
+    "npm",
+    "security",
+    "politics"
+  ]
+}
