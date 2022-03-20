@@ -91,8 +91,3 @@ Licensed under the MIT license.
 [NPM]: https://www.npmjs.com/
 [PNPM]: https://pnpm.io/
 [Yarn]: https://yarnpkg.com/
-[RequireJS]: https://requirejs.org/
-[Babel]: http://babeljs.io
-[@babel/standalone]: https://github.com/babel/babel/tree/master/packages/babel-standalone
-[requirejs-babel7]: https://www.npmjs.com/package/requirejs-babel7
-[babel-plugin-module-resolver-standalone]: https://www.npmjs.com/package/babel-plugin-module-resolver-standalone
