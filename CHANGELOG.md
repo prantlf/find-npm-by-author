@@ -1,3 +1,10 @@
+## [0.0.4](https://github.com/prantlf/find-npm-by-author/compare/v0.0.3...v0.0.4) (2022-03-20)
+
+
+### Bug Fixes
+
+* Fix typo in the usage instructions ([6743725](https://github.com/prantlf/find-npm-by-author/commit/6743725a5161fd6b293855331af72785df6e8e29))
+
 ## [0.0.3](https://github.com/prantlf/find-npm-by-author/compare/v0.0.2...v0.0.3) (2022-03-20)
 
 
